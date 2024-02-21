@@ -1,5 +1,5 @@
 
-
+# location interface defining the accept student function
 class location:
     def __init__(self) -> None:
         pass
@@ -7,6 +7,7 @@ class location:
     def acceptStudent(self, student : 'student') -> None:
         pass
 
+# location implementations responsible for implementaion of accept and any additional functions
 class english_class(location):
     def __init__(self):
         pass
@@ -67,8 +68,7 @@ class GOL(location):
     def get_GOL_name(self) -> str:
         return "Golisano Hall"
 
-
-
+# Student Interface responsible for defining the possible visits a student might need to possess
 class student:
     def __init__(self, name : str) -> None:
         self.name = name
@@ -92,6 +92,7 @@ class student:
     def visit_physics_class(self, loc : physics_class) -> None:
         pass
 
+# Student Implentations responsible for implementing the visits and calling the individual locations
 class swen_student(student):
     def __init__(self, name : str) -> None:
         super().__init__(name)
@@ -136,21 +137,7 @@ class english_student(student):
     def visit_physics_class(self, phys_class : physics_class) -> None:
         print(self.name + " is indifferent to " + phys_class.get_course_physics())
 
-
-
-
-
-
-"""
-While rather simplistic this demonstrations shows the basic functionality of a visitor pattern, the ability to have 2 sets of classes
-one (locations) which only need to know the interface for the other set of of classes and the other (students) which can understand the 
-full interface for the other set. This allows for easy addition of new visitors into the system but would require changing all existing visitors 
-upon the addition of a new location.
-"""
-
-
-
-
+#Runs through the possible combinations of student and location showing off the different functionality
 if __name__ == '__main__':
     stu1 = swen_student("John Smith")
     stu2 = english_student("Smith John")

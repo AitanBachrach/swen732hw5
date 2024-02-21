@@ -1,0 +1,4 @@
+
+While rather simplistic this demonstration shows the basic functionality of a visitor pattern, the ability to have 2 sets of classes one (locations) which only need to know the interface for the other set of of classes and the other (students) which can understand the full interface for the other set. This allows for easy addition of new visitors into the system but would require changing all existing visitors upon the addition of a new location.
+
+The locations are responsible accepting a student then for passing themselves into the appropriate function as defined on the student interface. The students are then resposible for understanding the possible locations and their functions to obtain information from the classes and then using the obtained information to perform their nessecary calculations
